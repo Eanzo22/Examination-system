@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-container">
+        <progress class="progress" ></progress>
+        <div>
+            <span class="timer">timer</span>
+        </div>
+    </div>
+    <div class="questions-container">
+        <div class="marked-questions"><span>marked questions</span></div>
+        <div class="questions">
+            <span>Question</span>
+        </div>
+            <div class="answers">
+                <label for="answer1">
+                    test1
+                <input type="radio" name="choices" id="answer1">
+                </label>
+                <label for="answer2">
+                    test2
+                    <input type="radio" name="choices" id="answer2">
+                </label>
+                <label for="answer3">
+                    test3
+                    <input type="radio" name="choices" id="answer3">
+                </label>
+                <label for="answer4">
+                    test4
+                    <input type="radio" name="choices" id="answer4">
+                </label>
+                <label for="answer5">
+                    test5
+                    <input type="radio" name="choices" id="answer5">
+                </label>
+            </div>
+        <div class="buttons">
+            <button type="button" id="previous">previous</button>
+            <span class="question-number">5</span>
+            <button type="button" id="next">next</button>
+            <button type="button" id="mark">mark</button>
+        </div>
+    </div>
+    <button type="submit" id="submit">submit</button>
+    <script src="jquery-3.7.1.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

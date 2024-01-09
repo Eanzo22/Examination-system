@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Style the checkbox-like radio buttons */
+/* input[type="radio"] {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4caf50;
+    border-radius: 4px;
+    outline: none;
+    margin-right: 5px;
+    cursor: pointer;
+} */
+
+/* Create a check mark for the checkbox-like radio button */
+/* input[type="radio"]::before {
+    content: "\2713";
+   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #4caf50;
+    opacity: 0;
+    
+} */
+
+/* Show the check mark when the radio button is checked */
+/* input[type="radio"]:checked::before {
+    opacity: 1;
+} */
+
+/* Add space between the answer options and the submit button */
+.submit-button {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+/* Your existing CSS styles */
+
+/* Style the radio button to look like a checkbox */
+.custom-radio {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.hidden-radio {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.radio-label {
+    display: inline-block;
+    padding-left: 30px;
+    /* Adjust the padding for spacing */
+}
+
+.radio-label::before {
+    content: '\2610';
+    /* Unicode character for an empty checkbox */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4caf50;
+    border-radius: 4px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.hidden-radio:checked+.radio-label::before {
+    content: '\2611';
+    /* Unicode character for a checked checkbox */
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.hidden-radio:checked+.radio-label {
+    background-color: #e0f7fa;
+    /* Background color when checked */
+}
