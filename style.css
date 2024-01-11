@@ -53,7 +53,7 @@ body,html {
     bottom: 0;
     /* left:132px; */
 }
-.answers label{
+.answers div{
     display: block;
     padding: 10px;
     margin: 5px;
@@ -66,10 +66,22 @@ body,html {
     -o-border-radius: 5px;
     border-radius: 5px;
 }
+.answers div label{
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+}
+.answers div label:hover {
+    cursor: pointer;
+}
+.answers div:hover {
+    background-color: #9e9aeb;
+}
 .answers {
     position: absolute;
     width: 30%;
     top:30%;
+    /* height: 50%; */
     left: 25%;
 }
 input[type="radio"] {
