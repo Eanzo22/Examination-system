@@ -4,73 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCQ Exam</title>
-    <link rel="stylesheet" href="test.css">
+    <title>Toggle Radio Button</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+         /* Create a check mark for the checkbox-like radio button */
+input[type="radio"]::before {
+    content: "\2713";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    background-color: #2d21ce;
+    color: #e1efe2;
+    opacity: 0;
+    
+}
+
+ /* Show the check mark when the radio button is checked */
+input[type="radio"]:checked::before {
+    opacity: 1;
+}
+input[type="radio"]:checked{
+    background-color: #2d21ce;
+}
+    </style>
 </head>
 
 <body>
 
-    <div class="quiz-container">
-        <h1>MCQ Exam</h1>
-        <form id="quiz-form">
-            <!-- Question 1 -->
-            <div class="question">
-                <p>1. What is the capital of France?</p>
-                <label>
-                    Paris
-                    <input type="radio" name="q1" value="paris"> 
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="london"> London
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="berlin"> Berlin
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="rome"> Rome
-                </label>
-            </div>
+    <form id="myForm">
+        <input type="radio" name="myGroup" value="option1"> Option 1
+        <input type="radio" name="myGroup" value="option2"> Option 2
+        <input type="radio" name="myGroup" value="option3"> Option 3
+    </form>
 
-            <!-- Question 2 -->
-            <div class="question">
-                <p>2. Which planet is known as the Red Planet?</p>
-                <label>
-                    <input type="radio" name="q2" value="mars"> Mars
-                </label>
-                <label>
-                    <input type="radio" name="q2" value="venus"> Venus
-                </label>
-                <label>
-                    <input type="radio" name="q2" value="jupiter"> Jupiter
-                </label>
-                <label>
-                    <input type="radio" name="q2" value="saturn"> Saturn
-                </label>
-            </div>
+    <script>
+        $('input[name="myGroup"]').on('click', function () {
+            // Toggle the checked state
+            $(this).prop('checked', !$(this).prop('checked'));
 
-            <!-- Question 3 -->
-            <div class="question">
-                <p>3. What is the capital of Japan?</p>
-                <label>
-                    <input type="radio" name="q3" value="tokyo"> Tokyo
-                </label>
-                <label>
-                    <input type="radio" name="q3" value="beijing"> Beijing
-                </label>
-                <label>
-                    <input type="radio" name="q3" value="seoul"> Seoul
-                </label>
-                <label>
-                    <input type="radio" name="q3" value="bangkok"> Bangkok
-                </label>
-            </div>
+            // Uncheck other radio buttons in the group
+            $('input[name="myGroup"]').not(this).prop('checked', false);
+        });
 
-            <!-- Submit Button -->
-            <div class="submit-button">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </div>
+        // Use the change event to prevent manual deselection by keyboard navigation
+        $('input[name="myGroup"]').on('change', function () {
+            if (!$(this).prop('checked')) {
+                $(this).prop('checked', true);
+            }
+        });
+    </script>
 
 </body>
 
