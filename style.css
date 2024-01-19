@@ -14,7 +14,11 @@ body,html {
     width: 100%;
     text-align: center;
 }
-
+.question{
+    width: 70%;
+    font-size: medium;
+    font-weight: bold;
+}
 .questions-container{
     /* max-width: 600px; */
     position: relative;
@@ -213,3 +217,18 @@ progress::-webkit-progress-value {
     -o-transition: width 0.5s linear, background-color 0.5s linear;
     transition: width 0.5s linear, background-color 0.5s linear;
 }
+@media screen and (min-width: 500px) and (max-width:700px ) {
+    .buttons {
+        left: 0;
+    }
+}
+@media screen and (min-width: 1535px) {
+    .buttons{
+        left:29%
+    }
+}
+/* @media  (min-width:1807px ) {
+    .buttons {
+        left: 33%
+    }
+} */
