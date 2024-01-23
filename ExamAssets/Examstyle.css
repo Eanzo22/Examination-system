@@ -8,6 +8,7 @@
 body,html {
     font-family: 'Montserrat', sans-serif;
     height: 100%;
+    background-color: #263D42;
 }
 
 .top-container{
@@ -41,7 +42,8 @@ body,html {
         right: 0;
         width: 30%;
         height: 100%;
-        background-color: #9b94fd;
+        /* background-color: #9b94fd; */
+        background-color: #BDBBB0;
         border-top-right-radius:8px;
         border-bottom-right-radius: 8px ;
         overflow:hidden;
@@ -67,7 +69,8 @@ body,html {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 5px;
-    background-color: #9c97d1;
+    background-color: #263D42;
+    color: white;
 }
 .marked-questions-content:hover{
     background-color:#7870d3 ;
@@ -87,7 +90,7 @@ body,html {
     margin: 5px;
     width: 100%;
     border: 1px solid #6258f4;
-    background-color: #b8b5eb;
+    background-color: #D2D7DF;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -104,6 +107,9 @@ body,html {
 }
 .answers div:hover {
     background-color: #9e9aeb;
+}
+.timer{
+    color: white;
 }
 .answers {
     display: flex;
@@ -184,7 +190,7 @@ button:hover{
     padding: 10px;
     width: 10px;
     color: white;
-    background-color: #2d21ce;
+    background-color: #263D42;
 }
 progress {
     width: 90%;

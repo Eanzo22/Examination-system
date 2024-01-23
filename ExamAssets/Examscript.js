@@ -47,6 +47,8 @@ function shuffle(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+//for progress bar updating 
+var CurrentCheckedIndexes=[];
 //Change Answers & Questions content
 function ChangeContent(array, Current_Question, Html_Element) {
 //clear the choices content 
@@ -70,11 +72,18 @@ function ChangeContent(array, Current_Question, Html_Element) {
     var value = $("input[name='choices']:checked").val();
     var QuestionId = QuestionsArr[Current_Question].QuestionID;
     AnswersArr[Current_Question] = { id: QuestionId, answer: value };
-    //update the progress bar
-    var progressBar = $(".progress");
+
+    if (!CurrentCheckedIndexes.includes(Current_Question)){
+      //update the progress bar
+      var progressBar = $(".progress");
       progressBar[0].style.setProperty("--webkit-progress-value-color",getColor(progressBarValue));
       progressBar.val(progressBarValue);
       progressBarValue += progressBarStep;
+      alreadyChecked=true;
+      console.log("in the true")
+      CurrentCheckedIndexes.push(Current_Question);
+
+    }
   });
 }
 //well .. the name is enough 
@@ -240,33 +249,13 @@ $(document).ready(() => {
   localStorage.removeItem("examData");
   //========================================
   // page initialization
-  {
+  
     
-    $(".question-number").text(CurrentQuestion + 1);
     shuffle(QuestionsArr); //shuffle allQuestions
     //================================================
     // 1st Question display
-    $(".question span").text(QuestionsArr[CurrentQuestion].QuestionText);
-    //================================================
-    //1st answers display
-    QuestionsArr[0].Answers.forEach((AnswerText, index) => {
-      var label = $(`<label for="${AnswerText}">${AnswerText}</label>`);
-      var radio = $(
-        `<input type="radio" name="choices" id="${AnswerText}" value="${AnswerText}">`
-      );
-      var answersDiv = $("<div></div>").append(label).append(radio);
-      $(".answers").append(answersDiv);
-    });
-    //============================================================================================
-    $("input[name='choices']").on("change", () => {
-      var value = $("input[name='choices']:checked").val();
-      var QuestionId = QuestionsArr[CurrentQuestion].QuestionID;
-      AnswersArr[CurrentQuestion] = { id: QuestionId, answer: value };
-      progressBar[0].style.setProperty("--webkit-progress-value-color",getColor(progressBarValue));
-      progressBar.val(progressBarValue)
-      progressBarValue += progressBarStep;
-    });
-  }
+    ChangeContent(QuestionsArr,CurrentQuestion,".answers")
+    
   //===================================================
   //Setting time Interval
   const timerInterval = setInterval(updateTimer, 1000);
@@ -289,7 +278,7 @@ $(document).ready(() => {
     CurrentQuestion = $(".question-number").text() - 1;
     let jsonString = JSON.stringify(submissionDetails);
     localStorage.setItem("examData", jsonString);
-    location.replace("test.html");
+    location.replace("./timeOut.html");
   }, timeInSeconds * 1000);
   //============================================================================================
   //Next Button functionality
@@ -359,5 +348,6 @@ $(document).ready(() => {
     }
     let jsonString = JSON.stringify(submissionDetails);
     localStorage.setItem("examData", jsonString);
+    location.replace("./results.html");
   });
 });
